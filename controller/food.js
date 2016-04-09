@@ -30,6 +30,7 @@ module.exports.add_food = function(req, res) {
             var food  = new Food();
             // set the user's local credentials
             food.name    = req.body.name;
+            food.foodclass =req.body.foodclass;
            	food.foodtype    = req.body.foodtype;
             food.price   = req.body.price;
             food.spicelevel    = req.body.spicelevel;
