@@ -1,0 +1,21 @@
+<header>
+  <hgroup class="intro">
+    <a href="/"> <span class="entry-icon"></span>
+    <h1 class="title">Platter</h1> </a>
+  </hgroup>
+  <div class="user_buttons">
+    <% if(typeof current_user !== 'undefined' && current_user.name != null) { %>
+      <p class="user_message"> Hi, <%= current_user.name %> </p>
+      <a class="u_btn u_in cart" href="#cart-container" > <span class="cart"></span> Cart </a>
+      <a class="u_btn u_in" href="/api/food" > Browse </a>
+      <a class="u_btn login-window u_in" href="#food-box" >Add</a>
+      <% include ../food_form.ejs %>
+    <% } else { %>
+      <a class="u_btn login-window" href="#login-box" > Login </a>
+      <a class="u_btn login-window" href="#signup-box" > Signup </a>
+      <a class="u_btn" href="/api/food" > Browse </a>
+      <% include ../login_form.ejs %>
+      <% include ../signup_form.ejs %>
+    <% } %>
+  </div>
+</header>

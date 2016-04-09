@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+      <% include partials/templates/head.ejs %>
+	</head>
+	<body>
+    <div id="container">
+      <% include partials/templates/header.ejs %>
+      <div class="wrapper">
+      	<%= console.log(food); %>
+      	<% for(var i=0; i < food.length; i++) { %>
+      		<% position = (i%2 == 0 ? "left" : "right") %>
+      		<div class="home-widget <%= position %>">
+	          <a class="add_food" data-food="<%= food[i].id %>" href="#">
+	          <h3><%= food[i].name %></h3>
+	          <img src="/images/home/<%= food[i].foodclass %>.jpg" alt="" />
+	          <p>
+	          	<%= food[i].description %>
+	          	<span class="spice">Spice: <%= food[i].spicelevel %></span>
+	          	<span class="price">Price: <%= food[i].price %></span>
+	          	<% if(typeof current_user !== 'undefined') { %>
+	          	<a href="/food/<%= food[i].id %>">
+	          		<span class="price delete">
+	          			Delete Food
+	          		</span>
+	          	</a>
+	          	<% } %>
+ 	          </p>
+	          </a>
+	        </div>
+	    <% } %>
+	  </div>
+      <% include partials/templates/footer.ejs %>
+    </div>
+</body>
+</html>

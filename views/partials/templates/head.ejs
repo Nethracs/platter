@@ -1,0 +1,44 @@
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Platter</title>
+    <link rel="shortcut icon" type="image/ico" href="/images/favicon.ico"/>
+	<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/stylesheets/base.css" rel="stylesheet" type="text/css" media="screen" />
+	<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.pikachoose.js"></script>
+	<script type="text/javascript">
+				$(document).ready(function() {
+				  $("#pikame").PikaChoose();	
+          $('a.login-window').click(function() {
+    
+            //Getting the variable's value from a link 
+            var loginBox = $(this).attr('href');
+
+            //Fade in the Popup
+            $(loginBox).fadeIn(300);
+            
+            //Set the center alignment padding + border see css style
+            var popMargTop = ($(loginBox).height() + 24) / 2; 
+     
+             var popMargLeft = ($(loginBox).width() + 24) / 2; 
+            
+            $(loginBox).css({ 
+                'margin-top' : -popMargTop,
+                'margin-left' : -popMargLeft
+            });
+            
+            // Add the mask to body
+            $('body').append('<div id="mask"></div>');
+            $('#mask').fadeIn(300);
+            
+            return false;
+        });
+
+        // When clicking on the button close or the mask layer the popup closed
+        $('a.close, #mask').live('click', function() { 
+          $('#mask , .login-popup').fadeOut(300 , function() {
+            $('#mask').remove();  
+        }); 
+        return false;
+        });
+      });
+	</script>
