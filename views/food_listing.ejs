@@ -15,7 +15,7 @@
 	          <h3><%= food[i].name %></h3>
 	          <img src="/images/home/<%= food[i].foodclass %>.jpg" alt="" />
 	          <p>
-	          	<%= food[i].description %>
+	          	<%= food[i].description %> <br />
 	          	<span class="spice">Spice: <%= food[i].spicelevel %></span>
 	          	<span class="price">Price: <%= food[i].price %></span>
 	          	<% if(typeof current_user !== 'undefined') { %>
