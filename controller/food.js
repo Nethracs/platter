@@ -12,16 +12,31 @@ var Food = require('../model/food');
 // var food=db.foods.distinct( "dept" );
 
 module.exports.food_listing = function(req, res) {
-	Food.find(function(err, food) {
-		if(err) {
-			res.send(err);
-		}
-		if(typeof req.user !== 'undefined') {
-			res.render('food_listing.ejs', {food: food, current_user: req.user.local });
-		} else {
-			res.render('food_listing.ejs', {food: food});
-		}
-	})
+	if(typeof req.query.type !== 'undefined') {
+		console.log("we are here");
+		console.log(req.query.type);
+		Food.find({"foodclass": req.query.type}, function(err, food) {
+			if(err) {
+				res.send(err);
+			}
+			if(typeof req.user !== 'undefined') {
+				res.render('food_listing.ejs', {food: food, current_user: req.user.local });
+			} else {
+				res.render('food_listing.ejs', {food: food});
+			}
+		})
+	} else {
+		Food.find(function(err, food) {
+			if(err) {
+				res.send(err);
+			}
+			if(typeof req.user !== 'undefined') {
+				res.render('food_listing.ejs', {food: food, current_user: req.user.local });
+			} else {
+				res.render('food_listing.ejs', {food: food});
+			}
+		});
+	}
 };
 
 
