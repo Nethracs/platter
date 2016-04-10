@@ -1,7 +1,4 @@
-# platter
-
 #PLATTER: 
-
 Master Chef Emeril has planned to participate in food festival at Pioneers Square this weekend,So I have designed a web application for him to improve his business.
 
 #API Design
